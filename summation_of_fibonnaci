@@ -1,0 +1,22 @@
+# By considering the terms in the Fibonacci sequence
+# whose values do not exceed four million,
+# find the sum of the even-valued terms.
+
+import numpy as np
+from math import sqrt
+numList = []
+evenList =[]
+def fibbo(n): #nth term function for fib sequence
+    return int(((1+sqrt(5))**n-(1-sqrt(5))**n)/(2**n*sqrt(5)))
+
+for i in range(1,100): # loop to fill list with values less than 4x10^6
+    if fibbo(i) < 4000000:
+        numList.append(fibbo(i))
+for x in numList: # separate list to contain even numbers
+    if x % 2 == 0:
+        evenList.append(x)
+
+    
+evenArray = np.array(evenList) # convert to array for summation
+fibEvenSum = np.sum(evenArray)
+print(fibEvenSum)
