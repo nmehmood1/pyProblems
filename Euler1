@@ -1,0 +1,16 @@
+# Find the sum of all the multiples of 3 or 5 below 1000.
+
+import numpy as np
+
+
+numList = [] # Initialise list for multiples of 3 and 5.
+def summation_3_5(x):  # Create function to choose range.
+    for n in range(0,x):
+        if n % 3 == 0 or n % 5 == 0:
+            numList.append(n)
+            numArray = np.array(numList) # List converted to np array
+        finalSum = np.sum(numArray)
+    return finalSum
+    
+
+print(summation_3_5(1000))
